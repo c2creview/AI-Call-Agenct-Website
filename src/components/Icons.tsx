@@ -1,0 +1,116 @@
+import React from "react";
+import { 
+  PhoneOff, 
+  Clock, 
+  ZapOff, 
+  AlertTriangle, 
+  DollarSign, 
+  Users, 
+  PhoneCall, 
+  CalendarDays, 
+  HelpCircle, 
+  ShieldAlert, 
+  Shuffle, 
+  MessageSquareText, 
+  Globe, 
+  Filter, 
+  Database, 
+  Sparkles, 
+  Activity, 
+  Utensils, 
+  Hotel, 
+  Home, 
+  Briefcase, 
+  Scissors, 
+  Dumbbell, 
+  Car, 
+  Stethoscope, 
+  Scale, 
+  TrendingUp, 
+  Wrench, 
+  ChevronDown, 
+  ChevronUp, 
+  Star, 
+  Check, 
+  Play, 
+  Square, 
+  Volume2, 
+  Pause, 
+  ArrowRight, 
+  Video, 
+  Calendar, 
+  Phone, 
+  Mail, 
+  Linkedin,
+  ShieldCheck,
+  CheckCircle,
+  HelpCircle as HelpIcon,
+  MousePointerClick,
+  FileText,
+  BadgeAlert
+} from "lucide-react";
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  PhoneOff,
+  Clock,
+  ZapOff,
+  AlertTriangle,
+  DollarSign,
+  Users,
+  PhoneCall,
+  CalendarDays,
+  HelpCircle,
+  ShieldAlert,
+  Shuffle,
+  MessageSquareText,
+  Globe,
+  Filter,
+  Database,
+  Sparkles,
+  Activity,
+  Utensils,
+  Hotel,
+  Home,
+  Briefcase,
+  Scissors,
+  Dumbbell,
+  Car,
+  Stethoscope,
+  Scale,
+  TrendingUp,
+  Wrench,
+  ChevronDown,
+  ChevronUp,
+  Star,
+  Check,
+  Play,
+  Square,
+  Volume2,
+  Pause,
+  ArrowRight,
+  Video,
+  Calendar,
+  Phone,
+  Mail,
+  Linkedin,
+  ShieldCheck,
+  CheckCircle,
+  HelpIcon,
+  MousePointerClick,
+  FileText,
+  BadgeAlert
+};
+
+interface IconProps {
+  name: string;
+  className?: string;
+}
+
+export function LucideIcon({ name, className = "w-6 h-6" }: IconProps) {
+  const IconComponent = iconMap[name];
+  if (!IconComponent) {
+    // Fallback icon to gracefully prevent crashes if name mismatch
+    return <PhoneCall className={className} />;
+  }
+  return <IconComponent className={className} />;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "AI Call Assistant Landing Page",
+  "description": "Premium landing page highlighting AI call assistant automation solutions for small businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
