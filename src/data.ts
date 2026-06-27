@@ -309,50 +309,21 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    name: "Starter Setup",
+    name: "Complete Business Setup",
     price: "$499",
     period: "One-Time Setup",
-    description: "Perfect for single-operator businesses looking to capture basic missed calls.",
+    description: "The complete, turnkey AI phone receptionist customized to capture missed calls, answer questions, qualify leads, and book appointments 24/7.",
     features: [
-      "Basic AI call assistant integration",
-      "Simple structured call flow",
-      "Instant FAQ voice answering",
-      "Strategic automation consultation",
-      "Email custom call transcription alerts",
-      "SMS text notification dispatch"
-    ],
-    ctaText: "Get Starter Setup"
-  },
-  {
-    name: "Business Setup",
-    price: "$999",
-    period: "One-Time Setup",
-    description: "Designed for scaling businesses requiring calendar actions and CRM flows.",
-    features: [
-      "Highly customized voice and tone flows",
-      "Real-time appointment booking (GCal/Calendly)",
-      "Direct client CRM integration",
-      "Intelligent lead qualification checklists",
-      "Smart live call transferring",
-      "Standard testing and custom training"
+      "Highly customized voice, tone, & conversation logic",
+      "Real-time appointment booking (Google Calendar/Calendly)",
+      "Intelligent lead qualification checklists & intake sheets",
+      "Instant FAQ voice answering with custom business knowledge base",
+      "Smart live call transferring to human agents",
+      "Live call analytics and call history with conversation",
+      "Standard system testing, custom model training, & setup review"
     ],
     isPopular: true,
-    ctaText: "Get Business Setup"
-  },
-  {
-    name: "Premium Setup",
-    price: "$1,999",
-    period: "One-Time Setup",
-    description: "Advanced complete omni-channel system tailored for high-volume enterprise operations.",
-    features: [
-      "Advanced conversational logic trees",
-      "Automatic multi-language support",
-      "Matching responsive website chat assistant",
-      "Full custom database integrations",
-      "24/7 dedicated system monitoring",
-      "Priority VIP support & iterations (1 Year)"
-    ],
-    ctaText: "Get Premium Setup"
+    ctaText: "Get Complete Setup"
   }
 ];
 

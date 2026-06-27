@@ -28,8 +28,8 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* PRICING PLANS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto mb-12">
+        {/* PRICING PLANS CONTAINER */}
+        <div className="max-w-4xl mx-auto mb-12">
           {PRICING_PLANS.map((plan, idx) => (
             <motion.div
               key={plan.name}
@@ -37,70 +37,73 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`group flex flex-col justify-between rounded-[28px] p-6 sm:p-8 text-left transition-all duration-300 relative overflow-hidden ${
-                plan.isPopular
-                  ? "bg-slate-900 border-2 border-indigo-500/80 shadow-2xl shadow-indigo-500/10 relative scale-102"
-                  : "bg-[#111827]/40 border border-white/5 hover:border-white/10 hover:bg-[#111827]/60"
-              }`}
+              className="group bg-[#111827]/40 border border-indigo-500/30 rounded-[32px] p-6 sm:p-10 text-left transition-all duration-300 relative overflow-hidden shadow-2xl shadow-indigo-500/5 hover:border-indigo-500/50"
             >
               {/* Highlight popular glow effect */}
-              {plan.isPopular && (
-                <div className="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
-              )}
+              <div className="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
 
-              <div>
-                {/* Plan Header */}
-                <div className="flex items-center justify-between">
-                  <h3 className="text-white font-display font-extrabold text-lg sm:text-xl">
-                    {plan.name}
-                  </h3>
-                  {plan.isPopular && (
-                    <span className="text-[9px] uppercase font-mono font-black text-indigo-300 bg-indigo-500/15 border border-indigo-500/20 px-2 py-1 rounded-md tracking-wider">
-                      MOST POPULAR
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-gray-400 text-xs sm:text-sm mt-2 leading-relaxed min-h-[40px]">
-                  {plan.description}
-                </p>
-
-                {/* Big Price Tag */}
-                <div className="mt-6 flex items-baseline gap-1.5">
-                  <span className="text-white font-display font-black text-4xl tracking-tight leading-none">
-                    {plan.price}
-                  </span>
-                  <span className="text-gray-500 font-mono text-xs font-semibold">
-                    / {plan.period}
-                  </span>
-                </div>
-
-                {/* Features list */}
-                <div className="mt-8 pt-6 border-t border-white/5 space-y-4">
-                  {plan.features.map((feat) => (
-                    <div key={feat} className="flex items-start gap-2.5 text-xs text-gray-300">
-                      <div className="w-4 h-4 rounded-full bg-indigo-500/10 border border-indigo-400/25 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-indigo-400" />
-                      </div>
-                      <span>{feat}</span>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+                {/* Left side: Price & Call to Action (5 Columns) */}
+                <div className="lg:col-span-5 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-white font-display font-extrabold text-xl sm:text-2xl tracking-tight">
+                        {plan.name}
+                      </h3>
+                      <span className="text-[9px] uppercase font-mono font-black text-indigo-300 bg-indigo-500/15 border border-indigo-500/20 px-2 py-1 rounded-md tracking-wider">
+                        All-Inclusive Setup
+                      </span>
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* Action Button */}
-              <div className="mt-8">
-                <button
-                  onClick={scrollToBooking}
-                  className={`w-full py-3.5 px-4 rounded-xl font-bold text-center text-xs transition-all tracking-wider uppercase cursor-pointer flex items-center justify-center gap-2 ${
-                    plan.isPopular
-                      ? "bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30 border border-white/10"
-                      : "bg-white/5 hover:bg-white/10 text-white border border-white/10"
-                  }`}
-                >
-                  <span>{plan.ctaText}</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
+                    <p className="text-gray-400 text-xs sm:text-sm mt-3 leading-relaxed">
+                      {plan.description}
+                    </p>
+
+                    {/* Big Price Tag */}
+                    <div className="mt-8 flex flex-col">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-400 mb-1">Total One-Time Setup Fee</span>
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-white font-display font-black text-4xl sm:text-5xl tracking-tight leading-none bg-clip-text bg-gradient-to-r from-white via-white to-gray-300">
+                          {plan.price}
+                        </span>
+                        <span className="text-gray-500 font-mono text-xs font-semibold">
+                          / {plan.period}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Action Button */}
+                  <div className="mt-8">
+                    <button
+                      onClick={scrollToBooking}
+                      className="w-full py-4 px-6 rounded-xl font-extrabold text-center text-xs tracking-widest transition-all uppercase cursor-pointer flex items-center justify-center gap-2.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30 border border-white/10 hover:shadow-indigo-600/50 hover:scale-[1.01] active:scale-95"
+                    >
+                      <span>{plan.ctaText}</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </button>
+                    <p className="text-[10px] text-gray-500 text-center mt-3 font-sans">
+                      🔒 No monthly contracts. 100% Asset Ownership.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right side: Combined Features (7 Columns) */}
+                <div className="lg:col-span-7 bg-slate-900/40 border border-white/[0.03] rounded-2xl p-5 sm:p-7 flex flex-col justify-center">
+                  <h4 className="text-white font-mono text-[10px] font-bold tracking-widest uppercase mb-4 text-indigo-300">
+                    INCLUDED CUSTOM BUILD FEATURES:
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5">
+                    {plan.features.map((feat) => (
+                      <div key={feat} className="flex items-start gap-2.5 text-xs text-gray-300">
+                        <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-400/25 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5 text-emerald-400" />
+                        </div>
+                        <span className="leading-normal">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
             </motion.div>
